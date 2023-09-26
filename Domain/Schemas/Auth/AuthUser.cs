@@ -4,15 +4,16 @@ using Domain.Schemas.BaseEntity;
 
 namespace Domain.Schemas.Auth;
 
+[Table("auth_user", Schema = "auth")]
 public class AuthUser : Entity
 {
-    [Column("first_name")]
+    [Column("first_name"), MaxLength(50)]
     public string FirstName { get; set; } = null!;
     
-    [Column("last_name")]
+    [Column("last_name"), MaxLength(50)]
     public string? LastName { get; set; }
 
-    [Column("username")]
+    [Column("username"), MaxLength(30)]
     public string Username { get; set; } = null!;
 
     [Column("password_hash")]
@@ -20,4 +21,10 @@ public class AuthUser : Entity
 
     [Column("password_salt")]
     public string PasswordSalt { get; set; } = null!;
+    
+    [Column("auth_role_id")]
+    public long AuthRoleId { get; set; }
+    
+    [ForeignKey(nameof(AuthRoleId))]
+    public virtual AuthRole AuthRole { get; set; }
 }

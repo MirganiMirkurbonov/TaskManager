@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Akmal\\.nuget\\packages\\": {}
+    "C:\\Users\\Asus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\Akmal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Akmal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
