@@ -1,6 +1,8 @@
-﻿namespace Persistence.EntityContext;
+﻿using Microsoft.EntityFrameworkCore;
 
-public partial class EntityContext
+namespace Persistence.EntityContext;
+
+public partial class EntityContext : DbContext
 {
     
 }
