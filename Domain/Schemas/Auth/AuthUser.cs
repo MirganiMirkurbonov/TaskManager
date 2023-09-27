@@ -16,15 +16,12 @@ public class AuthUser : Entity
     [Column("username"), MaxLength(30)]
     public string Username { get; set; } = null!;
 
+    [Column("email")]
+    public string Email { get; set; } = null!;
+
     [Column("password_hash")]
     public string PasswordHash { get; set; } = null!;
 
     [Column("password_salt")]
     public string PasswordSalt { get; set; } = null!;
-    
-    [Column("auth_role_id")]
-    public long AuthRoleId { get; set; }
-    
-    [ForeignKey(nameof(AuthRoleId))]
-    public virtual AuthRole AuthRole { get; set; }
 }

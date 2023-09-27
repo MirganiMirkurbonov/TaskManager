@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "fPw8bAiNq+2/+lm4U+EzY15IyNvkjUttckzAeDzDNp79vNm+0susCvEq0LfrTO2D3d6lHlAr0TZDVSGEcVCTYg==",
+  "dgSpecHash": "36tepr6Yd+sDo65MBEipCfKSDxTbU3hOJtN5eq0MuvuT9iWCxXY4SnV1KxtnA1SEHkQPVr49meNCmzUzTnS6mg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.4\\microsoft.extensions.configuration.binder.7.0.4.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

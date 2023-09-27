@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices.JavaScript;
 using Domain.Enumerators;
+using Domain.Schemas.Auth;
 using Domain.Schemas.BaseEntity;
 
 namespace Domain.Schemas.Project;
@@ -13,6 +15,15 @@ public class Task : Entity
     
     [Column("description"), MaxLength(500)]
     public string? Description { get; set; }
+    
+    [Column("created_date")]
+    public DateTime CreatedDate { get; set; } = DateTime.Now;
+    
+    [Column("start_date")]
+    public DateTime StartDate { get; set; }
+    
+    [Column("finish_date")]
+    public DateTime? FinishedDate { get; set; }
 
     [Column("status")]
     public ETaskStatus Status { get; set; } = ETaskStatus.Created;
@@ -20,9 +31,9 @@ public class Task : Entity
     [Column("priority")]
     public EPriority Priority { get; set; }
     
-    [Column("project_id")]
-    public long ProjectId { get; set; }
+    [Column("auth_user_id")]
+    public long AuthUserId { get; set; }
     
-    [ForeignKey(nameof(ProjectId))]
-    public virtual Project Project { get; set; }
+    [ForeignKey(nameof(AuthUserId))]
+    public virtual AuthUser AuthUser { get; set; }
 }

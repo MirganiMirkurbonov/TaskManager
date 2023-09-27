@@ -5,5 +5,4 @@ public enum ETaskStatus
     Created,
     InProgress,
     Finished,
-    Archived
 }

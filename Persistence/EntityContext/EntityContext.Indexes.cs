@@ -1,5 +1,6 @@
 ﻿using Domain.Schemas.Auth;
 using Microsoft.EntityFrameworkCore;
+using Task = Domain.Schemas.Project.Task;
 
 namespace Persistence.EntityContext;
 
@@ -13,14 +14,17 @@ public partial class EntityContext
             .HasIndex(_ => _.Username)
             .IsUnique();
         
-        modelBuilder.Entity<AuthRole>()
-            .HasIndex(_ => _.Keyword)
+        modelBuilder.Entity<AuthUser>()
+            .HasIndex(_ => _.Email)
             .IsUnique();
         
-        modelBuilder.Entity<AuthPermission>()
-            .HasIndex(_ => _.Keyword)
-            .IsUnique();
+        #endregion
 
+        #region Task
+
+        modelBuilder.Entity<Task>()
+            .HasIndex(_ => new {_.AuthUserId, _.StartDate});
+        
         #endregion
         
         base.OnModelCreating(modelBuilder);
