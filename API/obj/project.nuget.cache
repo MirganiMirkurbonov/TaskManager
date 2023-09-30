@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "rJwx2fEyOv3saxNUDNXgJWcya5ohJe5a5f5zb1JgJZrcBnxyrcMkVTiobb5zfkT5weQKajiTDcvgopUU7aKIxw==",
+  "dgSpecHash": "EmKf3U9iaC1DRNgiftj91CNT7VXPjYhUeIQL3S5hQVnt1l96XA7eHcAu/W2d/wrz7zpG7vQeAViAEs/NMNz3zg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\API\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.3\\microsoft.aspnetcore.openapi.7.0.3.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

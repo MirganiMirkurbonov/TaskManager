@@ -1,5 +1,4 @@
 C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\appsettings.Development.json
-C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\appsettings.Local.json
 C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\appsettings.Production.json
 C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\API.exe
 C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\API.deps.json
@@ -35,3 +34,12 @@ C:\Users\Asus\RiderProjects\TaskManager\API\obj\Debug\net7.0\refint\API.dll
 C:\Users\Asus\RiderProjects\TaskManager\API\obj\Debug\net7.0\API.pdb
 C:\Users\Asus\RiderProjects\TaskManager\API\obj\Debug\net7.0\API.genruntimeconfig.cache
 C:\Users\Asus\RiderProjects\TaskManager\API\obj\Debug\net7.0\ref\API.dll
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\nlog.config
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\appsettings.json
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\NLog.dll
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\NLog.Extensions.Logging.dll
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\NLog.Telegram.dll
+C:\Users\Asus\RiderProjects\TaskManager\API\bin\Debug\net7.0\NLog.Web.AspNetCore.dll

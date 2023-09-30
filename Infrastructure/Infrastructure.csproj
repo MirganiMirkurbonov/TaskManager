@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="AuthorizationManager\" />
+      <Folder Include="Extensions\" />
+    </ItemGroup>
+
 </Project>

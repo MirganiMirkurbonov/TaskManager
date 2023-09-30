@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "T0sm/8+QJAWoRF84e3QSkzEczdeyx9qAzt5ne8mlliDseYQwk6iTeCd8Xl+k5Er/jCZFW1CoOCCOxuzJI7PnlA==",
+  "dgSpecHash": "AMJvxylk8VJ8ljKSnvlZYHSNPoP6lTfqkabNKx1e8CvV2cvkmFapvyg5BeyUp6Dc2uYoRgrwTG+trFlm5oVa4A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.11\\microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",

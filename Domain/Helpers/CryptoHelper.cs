@@ -6,37 +6,29 @@ namespace Domain.Helpers;
 
 public class CryptoHelper
 {
-    public const int SALT_SIZE = 32;
-    public const int HASH_SIZE = 64;
-    public const int ITERATIONS = 1000;
-
+    private const int SaltSize = 32;
+    private const int HashSize = 64;
+    private const int Iterations = 1000;
 
     public static HashSalt CreateHashSalted(string password)
     {
-        try
+        var saltBytes = new byte[SaltSize];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(saltBytes);
+
+        var salt = Convert.ToBase64String(saltBytes);
+
+        using var rfc2898DeriveBytes =
+            new Rfc2898DeriveBytes(password, saltBytes, Iterations, HashAlgorithmName.SHA256);
+        var hashBytes = rfc2898DeriveBytes.GetBytes(HashSize);
+
+        var hashPassword = Convert.ToBase64String(hashBytes);
+
+        return new HashSalt
         {
-            var saltBytes = new byte[SALT_SIZE];
-            using var rng = RandomNumberGenerator.Create();
-            rng.GetBytes(saltBytes);
-
-            var salt = Convert.ToBase64String(saltBytes);
-
-            using var rfc2898DeriveBytes =
-                new Rfc2898DeriveBytes(password, saltBytes, ITERATIONS, HashAlgorithmName.SHA256);
-            var hashBytes = rfc2898DeriveBytes.GetBytes(HASH_SIZE);
-
-            var hashPassword = Convert.ToBase64String(hashBytes);
-
-            return new HashSalt
-            {
-                Hash = hashPassword,
-                Salt = salt
-            };
-        }
-        catch
-        {
-            return null;
-        }
+            Hash = hashPassword,
+            Salt = salt
+        };
     }
 
     public static string GetHashSalted(string password, string salt)
@@ -44,9 +36,9 @@ public class CryptoHelper
         try
         {
             var bsalt = Encoding.Default.GetBytes(salt);
-            using var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, bsalt, ITERATIONS);
+            using var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, bsalt, Iterations);
 
-            return ByteArrayToString(rfc2898DeriveBytes.GetBytes(HASH_SIZE));
+            return ByteArrayToString(rfc2898DeriveBytes.GetBytes(HashSize));
         }
         catch
         {
