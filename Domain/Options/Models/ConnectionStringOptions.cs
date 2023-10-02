@@ -1,3 +1,6 @@
-﻿namespace Domain.Options;
+﻿namespace Domain.Options.Models;
 
-public record ConnectionStringOptions(string Database);
+public class ConnectionStringOptions
+{
+    public string Database { get; set; }
+}

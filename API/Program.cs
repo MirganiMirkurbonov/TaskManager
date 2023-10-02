@@ -1,11 +1,11 @@
-using System.Reflection;
-using System.Runtime.Intrinsics.X86;
+using API.Extensions;
+using Application.Extensions;
 using Domain.Extensions;
-using FluentValidation;
-using FluentValidation.AspNetCore;
+using Domain.Helpers;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using NLog;
+using Persistence.Extensions;
 
 var logger = LogManager
     .Setup()
@@ -20,13 +20,17 @@ try
     {
         builder.Services.AddHttpContextAccessor();
         builder.Services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+      
         
         builder.Services
-            .AddDomain();
+            .AddSwaggerConfigs()
+            .AddDomain()
+            .AddApplication(builder.Configuration)
+            .AddPersistence();
         
+        builder.Services.AddMvc();
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
     }
 
     var app = builder.Build();
@@ -37,6 +41,9 @@ try
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        
+        if (app.Services.GetService<IHttpContextAccessor>() != null)
+            HttpContextHelper.Accessor = app.Services.GetRequiredService<IHttpContextAccessor>();
 
         app.UseHttpsRedirection();
 

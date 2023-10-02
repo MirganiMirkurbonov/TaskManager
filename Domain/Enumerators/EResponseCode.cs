@@ -5,5 +5,8 @@ public enum EResponseCode
     InvalidInputParams,
     InternalServerError,
     UsernameAlreadyExists,
-    EmailAlreadyRegistered
+    EmailAlreadyRegistered,
+    UsernameOrEmailAlreadyExists,
+    UserNotFound,
+    InvalidPassword
 }

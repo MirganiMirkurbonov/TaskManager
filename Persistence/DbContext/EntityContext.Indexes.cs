@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Task = Domain.Schemas.Project.Task;
 
-namespace Persistence.EntityContext;
+namespace Persistence.DbContext;
 
 public partial class EntityContext
 {
@@ -11,11 +11,11 @@ public partial class EntityContext
         #region Auth
 
         modelBuilder.Entity<AuthUser>()
-            .HasIndex(_ => _.Username)
+            .HasIndex(u => u.Username)
             .IsUnique();
-        
+
         modelBuilder.Entity<AuthUser>()
-            .HasIndex(_ => _.Email)
+            .HasIndex(u => u.Email)
             .IsUnique();
         
         #endregion
@@ -23,7 +23,7 @@ public partial class EntityContext
         #region Task
 
         modelBuilder.Entity<Task>()
-            .HasIndex(_ => new {_.AuthUserId, _.StartDate});
+            .HasIndex(t => new { t.AuthUserId, t.StartDate });
         
         #endregion
         

@@ -1,28 +1,29 @@
 ﻿using System.Net;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using Domain.Helpers;
+using Domain.Models.Request;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace API.Helpers;
 
 public class MyController<T> : ControllerBase where T : class
 {
-    public string ErrorMessage => GetErrorMessage();
-
-    private string GetErrorMessage()
-    {
-        var errorMessages = ModelState.Values
-            .SelectMany(v => v.Errors)
-            .First();
-        
-        return errorMessages.ErrorMessage;
-    }
-
     /// <summary>
     /// Gets the User Id from the Authorization header.
     /// </summary>
     /// <returns>The User Id if present, otherwise null.</returns>
     protected long? UserId => GetUserId();
+    /// <summary>
+    /// TraceId
+    /// </summary>
+    public string TraceId => HttpContext.TraceIdentifier;
+    /// <summary>
+    /// 
+    /// </summary>
+    public CancellationToken CancellationToken => HttpContext.RequestAborted;
 
     private static long? GetUserId()
     {
@@ -39,9 +40,14 @@ public class MyController<T> : ControllerBase where T : class
             if (authorizationHeader.Scheme.StartsWith("Bearer"))
             {
                 // Attempt to extract the UserId from the User's claims.
-                var userId = Convert.ToInt64(httpContext.User.Claims?.FirstOrDefault(s => s.Type == "UserId")?.Value ?? "0");
-
-                return userId;
+                var userIdClaim = httpContext.User.Claims
+                    .FirstOrDefault(claim => claim.Type == JwtRegisteredClaimNames.Sub);
+                
+                if (userIdClaim != null)
+                    return Convert.ToInt64(userIdClaim.Value);
+                
+                HttpContextHelper.Current.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                 httpContext.Response.WriteAsync("Unauthorized");
             }
 
             // If the authorization scheme is not "Bearer," return Unauthorized status.

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "boAyqL17h7Ip+Hp7YXHli0etR3GrT3xug+nJkPoFbGFYrLcSkdnDzTxK9DrLBXwtWjD7cwbXEu7LEDDD1dLQxw==",
+  "dgSpecHash": "TZ/bzSjlGZdKwjaO8jR8ruszUMICulQH73dbU4N2O7ejZaJ0jt9RY7SsPINF8fQgUz+7BY9VQLWmgFmBpkQAxg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Infrastructure\\Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

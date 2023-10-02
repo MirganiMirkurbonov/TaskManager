@@ -1,9 +1,7 @@
-﻿using System.Reflection;
-using Domain.Options;
+﻿using Domain.Models.Request;
 using Domain.Options.SetupManager;
 using Domain.Validators;
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Domain.Extensions;
@@ -12,11 +10,11 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddDomain(this IServiceCollection services)
     {
-        
-        services.AddFluentValidationAutoValidation();
-        services.AddValidatorsFromAssemblyContaining<SignUpRequestValidator>();
+       services.AddScoped<IValidator<SignUpRequest>, SignUpRequestValidator>();
+       services.AddScoped<IValidator<SignInRequest>, SignInRequestValidator>();
         
         services.ConfigureOptions<ConnectionStringOptionsSetupManager>();
+        services.ConfigureOptions<JwtOptionsSetupManager>();
         return services;
     } 
 }

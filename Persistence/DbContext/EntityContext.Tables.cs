@@ -1,9 +1,8 @@
 ﻿using Domain.Schemas.Auth;
-using Domain.Schemas.Project;
 using Microsoft.EntityFrameworkCore;
 using Task = Domain.Schemas.Project.Task;
 
-namespace Persistence.EntityContext;
+namespace Persistence.DbContext;
 
 public partial class EntityContext
 {
@@ -13,7 +12,7 @@ public partial class EntityContext
 
     #endregion
 
-    #region Project
+    #region Task
     
     public virtual DbSet<Task> Tasks { get; set; }
 

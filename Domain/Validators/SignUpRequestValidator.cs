@@ -8,7 +8,6 @@ public class SignUpRequestValidator : AbstractValidator<SignUpRequest>
     public SignUpRequestValidator()
     {
         RuleFor(request => request.FirstName)
-            .NotNull()
             .NotEmpty()
             .Length(3, 50);
         
@@ -20,5 +19,9 @@ public class SignUpRequestValidator : AbstractValidator<SignUpRequest>
         
         RuleFor(request => request.Email)
             .SetValidator(new EmailValidator());
+        
+        RuleFor(request => request.Password)
+            .NotEmpty()
+            .Length(5, 20);
     }
 }

@@ -12,46 +12,52 @@ public class CryptoHelper
 
     public static HashSalt CreateHashSalted(string password)
     {
-        var saltBytes = new byte[SaltSize];
-        using var rng = RandomNumberGenerator.Create();
-        rng.GetBytes(saltBytes);
-
-        var salt = Convert.ToBase64String(saltBytes);
-
-        using var rfc2898DeriveBytes =
-            new Rfc2898DeriveBytes(password, saltBytes, Iterations, HashAlgorithmName.SHA256);
-        var hashBytes = rfc2898DeriveBytes.GetBytes(HashSize);
-
-        var hashPassword = Convert.ToBase64String(hashBytes);
-
-        return new HashSalt
-        {
-            Hash = hashPassword,
-            Salt = salt
-        };
-    }
-
-    public static string GetHashSalted(string password, string salt)
-    {
         try
         {
-            var bsalt = Encoding.Default.GetBytes(salt);
-            using var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, bsalt, Iterations);
+            var saltBytes = new byte[SaltSize];
+            using var provider = new RNGCryptoServiceProvider();
+            provider.GetNonZeroBytes(saltBytes);
 
-            return ByteArrayToString(rfc2898DeriveBytes.GetBytes(HashSize));
+            var salt = ByteArrayToString(saltBytes);
+            var byteValue = Encoding.UTF8.GetBytes(salt);
+
+            var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, byteValue, Iterations);
+            var hashPassword = ByteArrayToString(rfc2898DeriveBytes.GetBytes(HashSize));
+
+            return new HashSalt
+            {
+                Hash = hashPassword,
+                Salt = salt
+            };
         }
         catch
         {
-            return string.Empty;
+            return null;
         }
     }
 
-    private static string ByteArrayToString(byte[] ba)
+    public static bool VerifyPassword( string password, string storedHash,string storedSalt)
     {
         try
         {
-            var hex = new StringBuilder(ba.Length * 2);
-            foreach (var b in ba)
+            var bsalt = Encoding.Default.GetBytes(storedSalt);
+            using var rfc2898DeriveBytes = new Rfc2898DeriveBytes(password, bsalt, Iterations);
+            var hash = ByteArrayToString(rfc2898DeriveBytes.GetBytes(HashSize));
+            
+            return hash == storedHash;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public static string ByteArrayToString(byte[] ba)
+    {
+        try
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
                 hex.AppendFormat("{0:x2}", b);
 
             return hex.ToString();
@@ -59,6 +65,24 @@ public class CryptoHelper
         catch
         {
             return string.Empty;
+        }
+    }
+
+    public static byte[] StringToByteArray(string hex)
+    {
+        try
+        {
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+
+            return bytes;
+        }
+        catch
+        {
+            return null;
         }
     }
 }
