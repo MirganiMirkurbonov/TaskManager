@@ -1,5 +1,7 @@
 ﻿using Domain.Models.Request;
+using Domain.Models.Request.Auth;
 using Domain.Models.Response;
+using Domain.Models.Response.Auth;
 
 namespace Application.Interfaces;
 

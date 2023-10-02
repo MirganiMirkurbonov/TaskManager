@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "o3n8RrY/GgwfXvzAtd4ZpJVVZlMv0mOPVT4S6mtnGK+zS7Tpna3LiqI+3df4Cye5psZRg9/BWcPimrF+2aAefQ==",
+  "dgSpecHash": "59EEFnJcfr9VOLIa1grcT4fCdxC0u2Mac3lzqjAWOCgv/YY8rER3JdRZoebCrcG/BYh/5CK9rq4gDP6MSHDWzw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\mapster.core\\1.2.1\\mapster.core.1.2.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.11\\microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.11\\microsoft.entityframeworkcore.analyzers.7.0.11.nupkg.sha512",

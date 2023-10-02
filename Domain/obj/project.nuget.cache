@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "mRZhpI0VIC3fpWB17InhvI5anf5TWSDt1H4Fj2s762slh5YOjAiy3CRcb+JkemIrb70rS0QBQfz0exkVtKsOqg==",
+  "dgSpecHash": "h1AtMyqGy699dvvCiH4pIQN45A0Vfyn9pcCUv3qsnKUZ27hJjFhQpPQ+OjegB/3jK0qNKS6cwOafAVmG1K9EUA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\mapster.core\\1.2.1\\mapster.core.1.2.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.4\\microsoft.extensions.configuration.binder.7.0.4.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",

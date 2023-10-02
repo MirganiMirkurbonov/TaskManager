@@ -1,4 +1,4 @@
-namespace Domain.Models.Request;
+namespace Domain.Models.Request.Auth;
 
 public class SignInRequest
 {

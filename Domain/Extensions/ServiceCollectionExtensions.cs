@@ -1,4 +1,5 @@
-﻿using Domain.Models.Request;
+﻿using Domain.Models.Request.Auth;
+using Domain.Models.Request.Task;
 using Domain.Options.SetupManager;
 using Domain.Validators;
 using FluentValidation;
@@ -12,6 +13,7 @@ public static class ServiceCollectionExtensions
     {
        services.AddScoped<IValidator<SignUpRequest>, SignUpRequestValidator>();
        services.AddScoped<IValidator<SignInRequest>, SignInRequestValidator>();
+       services.AddScoped<IValidator<CreateNewTaskRequest>, CreateTaskRequestValidator>();
         
         services.ConfigureOptions<ConnectionStringOptionsSetupManager>();
         services.ConfigureOptions<JwtOptionsSetupManager>();

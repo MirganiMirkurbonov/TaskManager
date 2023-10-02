@@ -3,10 +3,13 @@ using Application.Common;
 using Application.Extensions;
 using Application.Interfaces;
 using Domain.Enumerators;
+using Domain.Extensions;
 using Domain.Helpers;
 using Domain.Models.Inner;
 using Domain.Models.Request;
+using Domain.Models.Request.Auth;
 using Domain.Models.Response;
+using Domain.Models.Response.Auth;
 using Domain.Schemas.Auth;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -45,16 +48,11 @@ internal class UserRepository : IUser
                 return new ErrorResponse(HttpStatusCode.BadRequest, EResponseCode.UsernameOrEmailAlreadyExists);
             
             var passwordHashSalted = CryptoHelper.CreateHashSalted(request.Password);
-            
-            var user = new AuthUser
-            {
-                FirstName = request.FirstName,
-                LastName = request.FirstName,
-                Username = request.Username,
-                Email = request.Email,
-                PasswordSalt = passwordHashSalted.Salt,
-                PasswordHash = passwordHashSalted.Hash
-            };
+
+            // TODO: write special configuration for mapping
+            var user = request.MapTo<AuthUser>();
+            user.PasswordHash = passwordHashSalted.Hash;
+            user.PasswordSalt = passwordHashSalted.Salt;
             
             var newUser = await _userRepository.Create(user);
 
@@ -63,7 +61,7 @@ internal class UserRepository : IUser
                 newUser.LastName,
                 newUser.Id.ToString());
 
-            var result = new LoginResponse(newToken.Token, newToken.ExpireDate);
+            var result = newToken.MapTo<LoginResponse>();
             return result;
         }
         catch (Exception exception)
@@ -98,7 +96,7 @@ internal class UserRepository : IUser
                 user.LastName,
                 user.Id.ToString());
 
-            return new LoginResponse(userToken.Token, userToken.ExpireDate);
+            return userToken.MapTo<LoginResponse>();
         }
         catch (Exception exception)
         {

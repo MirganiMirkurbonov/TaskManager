@@ -19,11 +19,11 @@ public class MyController<T> : ControllerBase where T : class
     /// <summary>
     /// TraceId
     /// </summary>
-    public string TraceId => HttpContext.TraceIdentifier;
+    protected string TraceId => HttpContext.TraceIdentifier;
     /// <summary>
     /// 
     /// </summary>
-    public CancellationToken CancellationToken => HttpContext.RequestAborted;
+    protected CancellationToken CancellationToken => HttpContext.RequestAborted;
 
     private static long? GetUserId()
     {

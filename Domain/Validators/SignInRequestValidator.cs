@@ -1,4 +1,5 @@
 using Domain.Models.Request;
+using Domain.Models.Request.Auth;
 using FluentValidation;
 
 namespace Domain.Validators;

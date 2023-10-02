@@ -18,6 +18,7 @@ public static class ServiceCollectionExtension
     {
         service.AddAuth(configurationManager);
         service.AddScoped<IUser, UserRepository>();
+        service.AddScoped<ITask, TaskRepository>();
         service.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         return service;
     }
@@ -32,18 +33,21 @@ public static class ServiceCollectionExtension
         configurationManager.Bind(JwtConfigOptions.SectionName, jwtConfigOptions);
 
         #endregion
-        
+
+        service.AddAuthorization();
+
         service.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters()
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidIssuer = jwtConfigOptions.Issuer,
-                ValidAudience = jwtConfigOptions.Audience,
-                IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.Default.GetBytes(jwtConfigOptions.SecretKey))
-            });
+            .AddJwtBearer(options => options.TokenValidationParameters =
+                new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = false,
+                    ValidIssuer = jwtConfigOptions.Issuer,
+                    ValidAudience = jwtConfigOptions.Audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(jwtConfigOptions.SecretKey))
+                });
 
         return service;
     }
