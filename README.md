@@ -29,3 +29,11 @@ TaskManager is a web application built with .NET 7 that simplifies task manageme
    ```code
    cd TaskManager
    dotnet run
+
+4. You can see the APIs with Swagger on the code at
+   ```code
+   https://localhost:7223/swagger
+
+## Authentication
+
+To authenticate with the task manager application, you will need to send a JWT token in the Authorization header of your requests. The JWT token can be obtained by `sig-up` or `log-in` APIS.
