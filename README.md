@@ -9,7 +9,7 @@ TaskManager is a web application built with .NET 7 that simplifies task manageme
 - **Task Organization**: Categorize tasks by status (e.g., To-Do, In Progress, Completed) and priority.
 - **Task Details**: View and edit task details, including title, description, due date, and priority.
 - **Task Filtering**: Filter tasks by status or priority to focus on what matters most.
-- **User Authentication**: Securely register and log in to manage your tasks.
+- **User Authentication**: Securely register and log in to manage your tasks with `JWT tokens`
 
 ## Getting Started
 
@@ -30,10 +30,6 @@ TaskManager is a web application built with .NET 7 that simplifies task manageme
    cd TaskManager
    dotnet run
 
-> You can see the APIs with Swagger on the code at
+> You can see the APIs with Swagger on the code at:
    ```code
    https://localhost:7223/swagger
-
-### Authentication
-
-To authenticate with the task manager application, you will need to send a JWT token in the Authorization header of your requests. The JWT token can be obtained by `sig-up` or `log-in` APIS.
