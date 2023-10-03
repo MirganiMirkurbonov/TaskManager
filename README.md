@@ -30,7 +30,7 @@ TaskManager is a web application built with .NET 7 that simplifies task manageme
    cd TaskManager
    dotnet run
 
-4. You can see the APIs with Swagger on the code at
+> You can see the APIs with Swagger on the code at
    ```code
    https://localhost:7223/swagger
 
