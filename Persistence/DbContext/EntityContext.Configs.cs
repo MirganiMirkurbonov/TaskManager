@@ -1,4 +1,5 @@
-﻿using Domain.Schemas.Auth;
+﻿using Domain.Enumerators;
+using Domain.Schemas.Auth;
 using Microsoft.EntityFrameworkCore;
 using Task = Domain.Schemas.Project.Task;
 
@@ -11,6 +12,7 @@ public partial class EntityContext
         #region Auth
 
         modelBuilder.Entity<AuthUser>()
+            .HasQueryFilter(x=>x.State != EState.Deleted)
             .HasIndex(u => u.Username)
             .IsUnique();
 
@@ -23,6 +25,7 @@ public partial class EntityContext
         #region Task
 
         modelBuilder.Entity<Task>()
+            .HasQueryFilter(x => x.State != EState.Deleted)
             .HasIndex(t => new { t.AuthUserId, t.StartDate });
         
         #endregion

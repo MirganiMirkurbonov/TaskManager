@@ -8,5 +8,6 @@ public enum EResponseCode
     EmailAlreadyRegistered,
     UsernameOrEmailAlreadyExists,
     UserNotFound,
-    InvalidPassword
+    InvalidPassword,
+    TaskNotFound
 }

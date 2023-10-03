@@ -26,8 +26,7 @@ internal class TaskRepository : ITask
         _logger = logger;
     }
 
-    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> CreateTaskAsync(
-        CreateNewTaskRequest request,
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> CreateTaskAsync(CreateNewTaskRequest request,
         long currentUserId,
         string traceId,
         CancellationToken cancellationToken)
@@ -38,13 +37,9 @@ internal class TaskRepository : ITask
 
             var newTask = request.MapTo<Task>();
             newTask.AuthUserId = currentUserId;
-            await _genericRepository.Create(newTask);
-            
-            var taskList =await _genericRepository.Query()
-                .Where(x => x.AuthUserId == currentUserId)
-                .OrderBy(x => x.Id)
-                .Select(x=>x.MapTo<TaskListViewModel>())
-                .ToListAsync(cancellationToken);
+            await _genericRepository.Create(newTask, cancellationToken);
+
+            var taskList = await GetUserTaskList(currentUserId, cancellationToken);
             
             return new ListResponse<TaskListViewModel>(taskList);
         }
@@ -53,5 +48,113 @@ internal class TaskRepository : ITask
             _logger.LogCritical(traceId, exception, $"Exception thrown | \r\n request : {request.ToJsonString()}");
             return new ErrorResponse(HttpStatusCode.InternalServerError, EResponseCode.InternalServerError);
         }
+    }
+    
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> FilterTaskByPriorityAsync(EPriority priority,
+        long currentUserId,
+        string traceId,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var userTasks = await _genericRepository.QueryNoTracking()
+                .Where(x => x.Priority == priority)
+                .Select(x=>x.MapTo<TaskListViewModel>())
+                .ToListAsync(cancellationToken);
+            
+            return new ListResponse<TaskListViewModel>(userTasks);
+        }
+        catch (Exception exception)
+        {
+            _logger.LogCritical(traceId, exception, $"Exception thrown | \r\n request : nulll");
+            return new ErrorResponse(HttpStatusCode.InternalServerError, EResponseCode.InternalServerError);
+        }
+    }
+
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> UpdateTask(UpdateTaskRequest request,
+        long currentUserId,
+        string traceId,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var userTask = await _genericRepository.QueryWithTracking()
+                .FirstOrDefaultAsync(x => x.Id == request.Id && x.AuthUserId == currentUserId, cancellationToken);     
+            if (userTask == null || userTask.AuthUserId != currentUserId)
+                return new ErrorResponse(HttpStatusCode.NotFound, EResponseCode.TaskNotFound);
+            
+            userTask.Priority = request.Priority;
+            userTask.StartDate = request.StartDate;
+            userTask.Description = request.Description;
+            userTask.Title = request.Title;
+            
+            await _genericRepository.SaveChangesAsync(cancellationToken);
+            
+            var taskList =  await GetUserTaskList(currentUserId, cancellationToken);
+            return new ListResponse<TaskListViewModel>(taskList);
+        }
+        catch (Exception exception)
+        {
+            _logger.LogCritical(traceId, exception, $"Exception thrown | \r\n request : {request.ToJsonString()}");
+            return new ErrorResponse(HttpStatusCode.InternalServerError, EResponseCode.InternalServerError);
+        }
+    }
+    
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> DeleteTaskAsync(long taskId,
+        long currentUserId,
+        string traceId,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var userTask = await _genericRepository.QueryWithTracking()
+                .FirstOrDefaultAsync(x => x.Id == taskId && x.AuthUserId == currentUserId, cancellationToken);            
+            if (userTask == null)
+                return new ErrorResponse(HttpStatusCode.NotFound, EResponseCode.TaskNotFound);
+            
+            userTask.State = EState.Deleted;
+            await _genericRepository.SaveChangesAsync(cancellationToken);
+
+            var taskList =  await GetUserTaskList(currentUserId, cancellationToken);
+            return new ListResponse<TaskListViewModel>(taskList);
+        }
+        catch (Exception exception)
+        {
+            _logger.LogCritical(traceId, exception, $"Exception thrown | \r\n request : null");
+            return new ErrorResponse(HttpStatusCode.InternalServerError, EResponseCode.InternalServerError);
+        }
+    }
+
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> SetPriorityAsync(SetTaskPriorityRequest request, long currentUserId, string traceId,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var userTask = await _genericRepository.QueryWithTracking()
+                .FirstOrDefaultAsync(x => x.Id == request.Id && x.AuthUserId == currentUserId, cancellationToken);
+            if (userTask == null)
+                return new ErrorResponse(HttpStatusCode.NotFound, EResponseCode.TaskNotFound);
+
+            userTask.Priority = request.Priority;
+            await _genericRepository.SaveChangesAsync(cancellationToken);
+            
+            var userTaskList =  await GetUserTaskList(currentUserId, cancellationToken);
+            return new ListResponse<TaskListViewModel>(userTaskList);
+        }
+        catch (Exception exception)
+        {
+            _logger.LogCritical(traceId, exception, $"Exception thrown | \r\n request : null");
+            return new ErrorResponse(HttpStatusCode.InternalServerError, EResponseCode.InternalServerError);
+        }
+    }
+
+    private async Task<List<TaskListViewModel>> GetUserTaskList(long currentUserId,
+        CancellationToken cancellationToken)
+    {
+        return await _genericRepository.QueryNoTracking()
+            .Where(x => x.AuthUserId == currentUserId)
+            .OrderBy(x=>x.Id)
+            .Select(x => x.MapTo<TaskListViewModel>())
+            .ToListAsync(cancellationToken);
     }
 }

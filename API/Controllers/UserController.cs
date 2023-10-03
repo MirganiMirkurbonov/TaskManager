@@ -16,7 +16,6 @@ namespace API.Controllers;
 
 [ApiController]
 [Route("api/v1/[controller]")]
-//[Authorize]
 public class UserController : MyController<UserController>
 {
     /// <summary>

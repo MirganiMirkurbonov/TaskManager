@@ -1,11 +1,13 @@
 ﻿using System.Net;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Security.Claims;
 using Domain.Helpers;
 using Domain.Models.Request;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.JsonWebTokens;
+using JwtRegisteredClaimNames = System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames;
 
 namespace API.Helpers;
 
@@ -39,12 +41,10 @@ public class MyController<T> : ControllerBase where T : class
             // Check if the authorization scheme starts with "Bearer".
             if (authorizationHeader.Scheme.StartsWith("Bearer"))
             {
-                // Attempt to extract the UserId from the User's claims.
-                var userIdClaim = httpContext.User.Claims
-                    .FirstOrDefault(claim => claim.Type == JwtRegisteredClaimNames.Sub);
+                var userId = Convert.ToInt64(httpContext.User.Claims?.FirstOrDefault(s => s.Type == "UserId")?.Value ?? "0");
                 
-                if (userIdClaim != null)
-                    return Convert.ToInt64(userIdClaim.Value);
+                if (userId != 0)
+                    return userId;
                 
                 HttpContextHelper.Current.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                  httpContext.Response.WriteAsync("Unauthorized");
@@ -59,7 +59,6 @@ public class MyController<T> : ControllerBase where T : class
         {
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             httpContext.Response.WriteAsync("An error occurred while processing the request.");
-
             return null;
         }
     }

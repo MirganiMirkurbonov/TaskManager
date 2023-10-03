@@ -20,17 +20,15 @@ try
     {
         builder.Services.AddHttpContextAccessor();
         builder.Services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
-      
-        
-        builder.Services
-            .AddSwaggerConfigs()
-            .AddDomain()
-            .AddApplication(builder.Configuration)
-            .AddPersistence();
-        
         builder.Services.AddMvc();
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
+        
+        builder.Services
+            .AddApplication(builder.Configuration)
+            .AddSwaggerConfigs()
+            .AddDomain()
+            .AddPersistence();
     }
 
     var app = builder.Build();
@@ -47,9 +45,9 @@ try
 
         app.UseHttpsRedirection();
 
-        app.UseAuthorization();
-
         app.UseAuthentication();
+        
+        app.UseAuthorization();
 
         app.MapControllers();
 

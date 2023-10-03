@@ -17,8 +17,7 @@ internal class JwtTokenGenerator : IJwtTokenGenerator
         _options = options.Value;
     }
 
-    public JwtGeneratedResponse GenerateTokenAsync(
-        string firstName,
+    public JwtGeneratedResponse GenerateTokenAsync(string firstName,
         string? lastName,
         string userId)
     {
@@ -28,9 +27,10 @@ internal class JwtTokenGenerator : IJwtTokenGenerator
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, userId),
+            new Claim("UserId", userId),
             new Claim(JwtRegisteredClaimNames.GivenName, firstName),
-            new Claim(JwtRegisteredClaimNames.FamilyName, lastName ?? string.Empty)
+            new Claim(JwtRegisteredClaimNames.FamilyName, lastName ?? string.Empty),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
         var tokenExpireDate = DateTime.Now.AddMinutes(_options.ExpireMinutes);
@@ -39,6 +39,7 @@ internal class JwtTokenGenerator : IJwtTokenGenerator
             claims: claims,
             signingCredentials: signingCredentials,
             expires: tokenExpireDate,
+            notBefore: DateTime.Now,
             issuer: _options.Issuer,
             audience: _options.Audience);
 

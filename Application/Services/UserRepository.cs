@@ -42,7 +42,7 @@ internal class UserRepository : IUser
             
             // check username and email to unique
             var usernameOrEmailAlreadyExists =await 
-                _userRepository.Exists(x => x.Username == request.Username || x.Email == request.Email);
+                _userRepository.Exists(x => x.Username == request.Username || x.Email == request.Email, cancellationToken);
             
             if (usernameOrEmailAlreadyExists)
                 return new ErrorResponse(HttpStatusCode.BadRequest, EResponseCode.UsernameOrEmailAlreadyExists);
@@ -54,7 +54,7 @@ internal class UserRepository : IUser
             user.PasswordHash = passwordHashSalted.Hash;
             user.PasswordSalt = passwordHashSalted.Salt;
             
-            var newUser = await _userRepository.Create(user);
+            var newUser = await _userRepository.Create(user, cancellationToken);
 
             var newToken = _tokenGenerator.GenerateTokenAsync(
                 newUser.FirstName,
@@ -78,7 +78,7 @@ internal class UserRepository : IUser
         try
         {
             var user = await _userRepository
-                .Query()
+                .QueryWithTracking()
                 .FirstOrDefaultAsync(u => u.Username == request.Username, cancellationToken);
             if (user == null)
                 return new ErrorResponse(HttpStatusCode.NotFound, EResponseCode.UserNotFound);

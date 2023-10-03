@@ -5,11 +5,12 @@ namespace Persistence.Common;
 
 public interface IGenericRepository<T> where T : Entity
 {
-    Task<T> Create(T entity);
-    void Update(T entity);
-    void Delete(T entity);
-    Task<T?> GetById(long id);
-    Task SaveChangesAsync();
-    IQueryable<T> Query();
-    ValueTask<bool> Exists(Expression<Func<T, bool>> expression);
+    Task<T> Create(T entity, CancellationToken cancellationToken);
+    Task Update(T entity, CancellationToken cancellationToken);
+    Task DeleteHard(T entity, CancellationToken cancellationToken);
+    Task<T?> GetById(long id, CancellationToken cancellationToken);
+    Task SaveChangesAsync(CancellationToken cancellationToken);
+    IQueryable<T> QueryWithTracking();
+    IQueryable<T> QueryNoTracking();
+    ValueTask<bool> Exists(Expression<Func<T, bool>> expression, CancellationToken cancellationToken);
 }

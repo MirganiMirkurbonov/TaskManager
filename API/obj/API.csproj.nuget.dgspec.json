@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\RiderProjects\\TaskManager\\API\\API.csproj": {}
+    "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\RiderProjects\\TaskManager\\API\\API.csproj": {
+    "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\API\\obj\\",
+        "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Akmal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Akmal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,20 +22,21 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\Application.csproj"
+              "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\Application.csproj"
               },
-              "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj"
+              "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj"
+              "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -112,21 +113,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\Application.csproj": {
+    "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Application\\obj\\",
+        "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Akmal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Akmal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -140,11 +141,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj"
+              "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj"
+              "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -192,21 +193,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj": {
+    "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Akmal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Akmal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -277,21 +278,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Persistence\\obj\\",
+        "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\Akmal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Akmal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -305,8 +306,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Asus\\RiderProjects\\TaskManager\\Domain\\Domain.csproj"
+              "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Akmal\\RiderProjects\\TaskManager\\Domain\\Domain.csproj"
               }
             }
           }
@@ -362,7 +363,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
