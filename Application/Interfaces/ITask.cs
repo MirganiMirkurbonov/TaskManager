@@ -2,7 +2,6 @@
 using Domain.Models.Request.Task;
 using Domain.Models.Response;
 using Domain.Models.Response.Task;
-using Task = Domain.Schemas.Project.Task;
 
 namespace Application.Interfaces;
 
