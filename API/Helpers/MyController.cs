@@ -42,12 +42,11 @@ public class MyController<T> : ControllerBase where T : class
             if (authorizationHeader.Scheme.StartsWith("Bearer"))
             {
                 var userId = Convert.ToInt64(httpContext.User.Claims?.FirstOrDefault(s => s.Type == "UserId")?.Value ?? "0");
-                
                 if (userId != 0)
                     return userId;
                 
                 HttpContextHelper.Current.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                 httpContext.Response.WriteAsync("Unauthorized");
+                httpContext.Response.WriteAsync("Unauthorized");
             }
 
             // If the authorization scheme is not "Bearer," return Unauthorized status.

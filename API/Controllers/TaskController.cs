@@ -24,7 +24,8 @@ public class TaskController : MyController<TaskController>
 
     public TaskController(
         IValidator<CreateNewTaskRequest> createTaskRequestValidator,
-        ITask task, IValidator<UpdateTaskRequest> updateTaskRequestValidator)
+        ITask task,
+        IValidator<UpdateTaskRequest> updateTaskRequestValidator)
     {
         _updateTaskRequestValidator = updateTaskRequestValidator;
         _createTaskRequestValidator = createTaskRequestValidator;
