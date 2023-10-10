@@ -26,7 +26,8 @@ public class UserController : MyController<UserController>
     
     private readonly IUser _user;
 
-    public UserController(IValidator<SignUpRequest> signUpValidator,
+    public UserController(
+        IValidator<SignUpRequest> signUpValidator,
         IValidator<SignInRequest> signInValidator,
         IUser user)
     {
@@ -42,7 +43,8 @@ public class UserController : MyController<UserController>
         if (!validationResult.IsValid)
             return new ErrorResponse(HttpStatusCode.BadRequest, EResponseCode.InvalidInputParams);
         
-        return await _user.SignupAsync(request,
+        return await _user.SignupAsync(
+            request,
             TraceId,
             CancellationToken);
     }
@@ -54,7 +56,8 @@ public class UserController : MyController<UserController>
         if (!validationResult.IsValid)
             return new ErrorResponse(HttpStatusCode.BadRequest, EResponseCode.InvalidInputParams);
 
-        return await _user.SignInAsync(request,
+        return await _user.SignInAsync(
+            request,
             TraceId,
             CancellationToken);
     }

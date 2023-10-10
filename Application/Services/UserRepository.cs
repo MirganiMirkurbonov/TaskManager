@@ -23,7 +23,8 @@ internal class UserRepository : IUser
     private readonly IGenericRepository<AuthUser> _userRepository;
     private readonly IJwtTokenGenerator _tokenGenerator;
 
-    public UserRepository(ILogger<UserRepository> logger,
+    public UserRepository(
+        ILogger<UserRepository> logger,
         IGenericRepository<AuthUser> userRepository,
         IJwtTokenGenerator tokenGenerator)
     {
@@ -32,7 +33,8 @@ internal class UserRepository : IUser
         _tokenGenerator = tokenGenerator;
     }
 
-    public async Task<DefaultResponse<LoginResponse>> SignupAsync(SignUpRequest request,
+    public async Task<DefaultResponse<LoginResponse>> SignupAsync(
+        SignUpRequest request,
         string traceId,
         CancellationToken cancellationToken)
     {
@@ -71,7 +73,8 @@ internal class UserRepository : IUser
         }
     }
     
-    public async Task<DefaultResponse<LoginResponse>> SignInAsync(SignInRequest request,
+    public async Task<DefaultResponse<LoginResponse>> SignInAsync(
+        SignInRequest request,
         string traceId,
         CancellationToken cancellationToken)
     {

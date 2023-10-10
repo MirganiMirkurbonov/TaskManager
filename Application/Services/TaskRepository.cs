@@ -19,14 +19,16 @@ internal class TaskRepository : ITask
     private readonly IGenericRepository<Task> _genericRepository;
     private readonly ILogger<TaskRepository> _logger;
 
-    public TaskRepository(IGenericRepository<Task> genericRepository,
+    public TaskRepository(
+        IGenericRepository<Task> genericRepository,
         ILogger<TaskRepository> logger)
     {
         _genericRepository = genericRepository;
         _logger = logger;
     }
 
-    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> CreateTaskAsync(CreateNewTaskRequest request,
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> CreateTaskAsync(
+        CreateNewTaskRequest request,
         long currentUserId,
         string traceId,
         CancellationToken cancellationToken)
@@ -50,7 +52,8 @@ internal class TaskRepository : ITask
         }
     }
     
-    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> FilterTaskByPriorityAsync(EPriority priority,
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> FilterTaskByPriorityAsync(
+        EPriority priority,
         long currentUserId,
         string traceId,
         CancellationToken cancellationToken)
@@ -71,7 +74,8 @@ internal class TaskRepository : ITask
         }
     }
 
-    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> UpdateTask(UpdateTaskRequest request,
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> UpdateTask(
+        UpdateTaskRequest request,
         long currentUserId,
         string traceId,
         CancellationToken cancellationToken)
@@ -100,7 +104,8 @@ internal class TaskRepository : ITask
         }
     }
     
-    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> DeleteTaskAsync(long taskId,
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> DeleteTaskAsync(
+        long taskId,
         long currentUserId,
         string traceId,
         CancellationToken cancellationToken)
@@ -125,7 +130,10 @@ internal class TaskRepository : ITask
         }
     }
 
-    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> SetPriorityAsync(SetTaskPriorityRequest request, long currentUserId, string traceId,
+    public async Task<DefaultResponse<ListResponse<TaskListViewModel>>> SetPriorityAsync(
+        SetTaskPriorityRequest request,
+        long currentUserId,
+        string traceId,
         CancellationToken cancellationToken)
     {
         try
@@ -148,7 +156,8 @@ internal class TaskRepository : ITask
         }
     }
 
-    private async Task<List<TaskListViewModel>> GetUserTaskList(long currentUserId,
+    private async Task<List<TaskListViewModel>> GetUserTaskList(
+        long currentUserId,
         CancellationToken cancellationToken)
     {
         return await _genericRepository.QueryNoTracking()
